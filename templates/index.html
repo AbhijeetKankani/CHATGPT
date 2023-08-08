@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Program UI</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Python Program UI</h1>
+    <label for="input">Input:</label>
+    <textarea id="input" rows="4"></textarea>
+    
+    <button onclick="runPythonProgram()">Run Program</button>
+    
+    <h3>Output:</h3>
+    <div id="output"></div>
+    
+    <script>
+        function runPythonProgram() {
+            // Get the input value
+            var query = document.getElementById("input").value;  // Update variable name to 'query'
+            
+            // Make a POST request to the Python program endpoint
+            fetch('/run_program', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: query })  // Update key to 'query'
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the output
+                var outputElement = document.getElementById("output");
+                outputElement.textContent = data.output;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>
