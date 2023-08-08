@@ -1,0 +1,9 @@
+---
+applications:
+- name: AIPodcast1
+  memory: 512M
+  instances: 1
+  path: .
+  command: python app.py
+  buildpacks:
+    - python_buildpack
