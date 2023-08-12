@@ -1,6 +1,6 @@
 ---
 applications:
-- name: AIPodcast1
+- name: Chatgpt
   memory: 512M
   instances: 1
   path: .
