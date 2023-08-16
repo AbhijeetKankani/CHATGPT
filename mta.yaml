@@ -10,5 +10,5 @@ build-parameters:
       commands:
         - python app.py
 modules:
-  - name: chapgpt-srv
+  - name: chatgpt-srv
     type: python
