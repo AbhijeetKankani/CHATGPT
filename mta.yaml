@@ -1,0 +1,14 @@
+_schema-version: '3.1'
+ID: chapgpt
+version: 1.0.0
+description: "GPT."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - python app.py
+modules:
+  - name: chapgpt-srv
+    type: python
