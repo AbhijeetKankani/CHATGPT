@@ -11,4 +11,4 @@ build-parameters:
         - python app.py
 modules:
   - name: chatgpt-srv
-    type: python
+    type: python3
